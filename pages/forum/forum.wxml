@@ -1,0 +1,47 @@
+<!--pages/forum/forum.wxml-->
+<!--头像 昵称 回复时间 标题 回复内容-->
+
+
+<view class="picBox" style="width: 715rpx; height: 615rpx; display: flex; box-sizing: border-box">
+  <view class="title" style="display: flex; align-items: center; padding: 10rpx; width: 715rpx; height: 150rpx; box-sizing: border-box; position: relative; left: 1rpx; top: -29rpx">
+    <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xhgm.jpg?sign=6bf9f3916b45cca53e8a36135ab5ea70&t=1708501149" mode="aspectFill" style="height: 100rpx; width: 100rpx; border-radius: 50%;"/>
+    <view style="margin-left: 20rpx;">
+      <view style="font-size: 36rpx; font-weight: bold;">体验用户1</view>
+      <view style="font-size: 24rpx; color: #7a7a7a;">回复于5分钟前</view>
+    </view>
+  </view>
+  <view style="padding: 20rpx; font-size: 35rpx; color: #333; width: 715rpx; height: 176rpx; display: block; box-sizing: border-box; position: relative; left: -3rpx; top: -29rpx">
+    这里是圈子，你可以在这里和其他用户一起交流，发表你的看法。
+  </view>
+  <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xhgm.jpg?sign=6bf9f3916b45cca53e8a36135ab5ea70&t=1708501149" mode="aspectFill" style="height: 329rpx; width: 715rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: -29rpx"/>
+</view>
+
+<view class="picBox" style="width: 715rpx; height: 615rpx; display: flex; box-sizing: border-box">
+  <view class="title" style="display: flex; align-items: center; padding: 10rpx; width: 715rpx; height: 150rpx; box-sizing: border-box; position: relative; left: 1rpx; top: -29rpx">
+    <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/%E5%85%AB%E4%B8%83%E4%BC%9A%E8%AE%AE.jpg?sign=1e488f9df0dd6a3ed6302449b90ba343&t=1715694266" mode="aspectFill" style="height: 100rpx; width: 100rpx; border-radius: 50%;"/>
+    <view style="margin-left: 20rpx;">
+      <view style="font-size: 36rpx; font-weight: bold;">体验用户2</view>
+      <view style="font-size: 24rpx; color: #7a7a7a;">回复于10分钟前</view>
+    </view>
+  </view>
+  <view style="padding: 20rpx; font-size: 35rpx; color: #333; width: 715rpx; height: 176rpx; display: block; box-sizing: border-box; position: relative; left: -3rpx; top: -29rpx">
+    这是一个自由的空间，你可以在这里发表你的见解，参与到热烈的讨论中。
+  </view>
+  <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/%E5%85%AB%E4%B8%83%E4%BC%9A%E8%AE%AE.jpg?sign=1e488f9df0dd6a3ed6302449b90ba343&t=1715694266" mode="aspectFill" style="height: 329rpx; width: 715rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: -29rpx"/>
+</view>
+
+<view class="picBox" style="width: 715rpx; height: 615rpx; display: flex; box-sizing: border-box">
+  <view class="title" style="display: flex; align-items: center; padding: 10rpx; width: 715rpx; height: 150rpx; box-sizing: border-box; position: relative; left: 1rpx; top: -29rpx">
+    <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkjm.jpg?sign=ebe7a3e1cc0170431b5eee92a7e2c370&t=1708501240" mode="aspectFill" style="height: 100rpx; width: 100rpx; border-radius: 50%;"/>
+    <view style="margin-left: 20rpx;">
+      <view style="font-size: 36rpx; font-weight: bold;">体验用户3</view>
+      <view style="font-size: 24rpx; color: #7a7a7a;">回复于15分钟前</view>
+    </view>
+  </view>
+  <view style="padding: 20rpx; font-size: 35rpx; color: #333; width: 715rpx; height: 176rpx; display: block; box-sizing: border-box; position: relative; left: -3rpx; top: -29rpx">
+    加入我们的圈子，与其他成员一起分享你的经验和见解，共同成长。
+  </view>
+  <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkjm.jpg?sign=ebe7a3e1cc0170431b5eee92a7e2c370&t=1708501240" mode="aspectFill" style="height: 329rpx; width: 715rpx; display: block; box-sizing: border-box; position: relative; left: 0rpx; top: -29rpx"/>
+</view>
+
+

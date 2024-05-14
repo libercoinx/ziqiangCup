@@ -1,0 +1,7 @@
+{
+  "usingComponents": {  
+    "floating-ball": "../../components/floating-ball/floating-ball"
+  },
+  "navigationStyle": "custom",
+  "style": "v2"
+}

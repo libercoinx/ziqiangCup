@@ -1,0 +1,13 @@
+<!-- 悬浮球内容 -->
+<!--
+<view class="floating-ball" bindtap="handleTap">
+  <image src="/images/floating-ball.png" class="ball-image"></image>
+</view>
+-->
+
+<view class="floating-ball" bindtap="handleTap" style="bottom: {{ bottom }}rpx; right: {{ right }}rpx; display: flex; justify-content: center; align-items: center;">
+  <image class="ball-image" src="images/3-More.svg" mode="heightFix"></image>
+</view>
+<view class="image-container" wx:if="{{ showImage }}" bindtap="handleTap" >
+  <image class="image" src="https://imgur.la/images/2024/03/13/IP11.png" mode="heightFix"></image>
+</view>

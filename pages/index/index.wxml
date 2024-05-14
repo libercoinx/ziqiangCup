@@ -1,0 +1,1391 @@
+<!--index.wxml-->
+<swiper class="swiper-container" autoplay="{{ true }}" circular="{{ true }}">
+  <!-- 主页轮播图 -->
+  <swiper-item class="item" wx:for="{{ images }}" wx:key="index" >
+    <image src="{{ item }}" class="swiper-img" mode="heightFix">
+    </image>>
+  </swiper-item>
+</swiper>
+
+<view class="mainContainer" style="display: block; box-sizing: border-box; left: 0rpx; width: 750rpx; height: 17534rpx">
+  <!-- 地图 -->
+  <view class="map" bindtap="gotoMap" style="position: relative; left: 1rpx; top: -43rpx">
+    <image style="width: 357rpx; height: 110rpx; display: block; box-sizing: border-box" src="/images/map.svg" mode="heightFix" class="mapImage" />
+    <text class="sectionText" style="margin-left: 20rpx;">红旅地图</text>
+  </view>
+
+  <view class="moreSection">
+    <view class="forum" bindtap="gotoForum">
+      <image style="height: 110rpx; display: block; box-sizing: border-box" src="/images/forum.svg" mode="heightFix"/>
+      <text class="sectionText">圈子</text>
+    </view>
+
+    <view class="shop" bindtap="gotoShop">
+      <image style="height: 110rpx; display: block; box-sizing: border-box; margin-right: 10rpx;" src="/images/find.svg" mode="heightFix"/>
+      <text class="sectionText">精品
+      活动</text>
+    </view>
+  </view>
+
+  <!-- 分类导航栏 -->
+  <view class="navigate" style="width: 750rpx; height: 100rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: 0rpx">
+    <view class="navigate-item" data-index="{{0}}" bindtap="tabNav">
+      <view class="names {{currentTab===0?'active':''}}" style="width: 179rpx; height: 61rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: -150rpx">革命旧址</view>
+      <view class="line {{currentTab===0?'active':''}}" wx:if="{{currentTab===0}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+    </view>
+
+    <view class="navigate-item" data-index="{{1}}" bindtap="tabNav">
+      <view class="names {{currentTab===1?'active':''}}" style="width: 179rpx; height: 61rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: -150rpx">教育基地</view>
+      <view class="line {{currentTab===1?'active':''}}" wx:if="{{currentTab===1}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+    </view>
+
+    <view class="navigate-item" data-index="{{2}}" bindtap="tabNav">
+      <view class="names {{currentTab===2?'active':''}}" style="position: relative; left: 1rpx; top: -150rpx">战争遗址</view>
+      <view class="line {{currentTab===2?'active':''}}" wx:if="{{currentTab===2}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+    </view>
+
+    <floating-ball style="position: fixed; bottom: 20rpx; right: 20rpx;"></floating-ball>
+
+  </view>
+  
+  <!-- 遗址信息展示卡片 -->
+  <swiper style="height: 17100rpx;" bindchange="handleSwiper" current="{{currentTab}}">
+    <swiper-item>
+      <view class="card" id="infoXhgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xhgm.jpg?sign=6bf9f3916b45cca53e8a36135ab5ea70&t=1708501149" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">辛亥革命武昌起义军政府旧址</text>
+          <text class="cardInfo">武昌区
+            周二至周日/09:00-17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSlwh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/slwh.jpg?sign=d70f8ba1bf249ea7db06c774ca3bda7b&t=1708501182" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">私立武汉中学旧址</text>
+          <text class="cardInfo">武昌区
+            全天开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhjh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whjh.jpg?sign=a070d742502bebae64f276c2bd7bb97c&t=1708501204" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉京汉铁路工人大罢工旧址</text>
+          <text class="cardInfo">江岸区
+            08:30—11:30,14:00—17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkjm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkjm.jpg?sign=ebe7a3e1cc0170431b5eee92a7e2c370&t=1708501240" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口景明大楼旧址</text>
+          <text class="cardInfo">江岸区
+            全年全天开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoRblj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/rblj.jpg?sign=6faefdbfb8e5ef325b1941e61090a151&t=1708501261" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">日本陆军积庆里“慰安所"旧址</text>
+          <text class="cardInfo">江汉区
+            全年全天开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYjsx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/yjsx.jpg?sign=aab89c5793deb528823b1653c5c272c9&t=1708501567" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">姚家山新四军第五师司政机关旧址</text>
+          <text class="cardInfo">黄陂区
+            全年/08:00—17:00开放
+            60元起
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoEybq" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/eybq.jpg?sign=1041de9a3160e488b32f0e01de1ad6a4&t=1708513428" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">鄂豫边区大达卷烟厂旧址</text>
+          <text class="cardInfo">黄陂区
+            全年全天开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHpxn" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hpxn.jpg?sign=bb087086b95ebd34573d5a281851b94f&t=1708513452" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">黄陂县农民协会旧址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoTqsw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/tqsw.jpg?sign=6b931a32d47fba13a463c6636a7ec08c&t=1708513503" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">塔区苏维埃政府旧址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLzdh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/lzdh.jpg?sign=e723c22573f7c81eb61ddb84bf2cc8d4&t=1708513532" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">雷祖殿会议会址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYchz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/ychz.jpg?sign=e3987f0d2cb115b8df0361ec7ca67e5f&t=1708513553" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">姚蔡河周恩来渡河处</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoMlsf" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/mlsf.jpg?sign=58433fbec9b0438be262ae2c70996edf&t=1708513583" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">木兰山风洞</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCxch" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/cxch.jpg?sign=e08677dfc227ea9a68bf396059d3b3fb&t=1708513611" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">陈秀冲会议会址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLxnj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/lxnj.jpg?sign=3d16d5ec3fa14aea7fbb581a5f39bbdf&t=1708513644" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">李先念旧居</text>
+          <text class="cardInfo">黄陂区
+            周二至周日/08:00-17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWghl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/wghl.jpg?sign=f5b139fc1fddc5ba66c412ecb6f7f569&t=1708513672" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">吴光浩烈士故居</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCycl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/cycl.jpg?sign=ce7cf5bdfe917b895b45dbe729565ee6&t=1708513695" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">蔡以忱烈士故居</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJjly" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/jjly.jpg?sign=89f11301602a774ba9e57d641083b7cc&t=1708513720" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">晋冀鲁豫野战军司令部旧址</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSlgx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/slgx.jpg?sign=4caa1523d505849d6b4966afd4d6be93&t=1708513740" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">双柳冈西特别支部、冈西暴动指挥部旧址</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJjsj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/jjsj.jpg?sign=06b33aef5238a41243c27874e2cfc531&t=1708513760" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">将军山将军洞</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCtch" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/ctch.jpg?sign=64d19be21312d29b3706cf4649f7ab22&t=1708513790" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">陈田村红军树</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkzh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkzh.jpg?sign=a256dd32d4f2055e45b7e67067ea0af4&t=1708513812" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口中华全国总工会旧址</text>
+          <text class="cardInfo">江岸区
+            周二至周日/09:00-17:00开放
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgwd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zgwd.jpg?sign=61161851ed3aee6da42eccf1b5541e70&t=1708513831" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中国共产党第五次全国代表大会旧址</text>
+          <text class="cardInfo">武昌区
+            周二至周日/9:00-17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgwd2" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zgwd2.jpg?sign=7058bc843a8811c5e0dc098190a644a4&t=1708664483" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中国共产党第五次全国代表大会旧址（黄陂会馆）</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhzy" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whzy.jpg?sign=902669d6354f1705c6a4b701c9866056&t=1708666325" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉中央军事政治学校旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhzy2" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whzy2.jpg?sign=da6c930e04ead9b981ba2d007280710f&t=1708666297" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉中央军事政治学校南湖校区遗址</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkbq" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkbq.jpg?sign=5fa7483f91410be1d61e6e52b7189318&t=1708513870" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口八七会议旧址</text>
+          <text class="cardInfo">江岸区
+            周二至周日/9：00-17：00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkxs" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkxs.jpg?sign=982309932afa15bd5d32b9a0fca12d15&t=1708513889" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口新四军军部旧址</text>
+          <text class="cardInfo">江岸区
+            周三闭馆/09:00-17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkxh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkxh.jpg?sign=24cd3a4a136d51a636667d3372f7cfbd&t=1708513907" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口新华日报社旧址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWcth" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/wcth.jpg?sign=7bfbbfbadf97478b3b34b9f62fea8fbf&t=1708514009" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武昌昙华林国民政府军事委员会政治部第三厅旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXzzd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xzzd.jpg?sign=1b95d14fc6c802ca804c22a9c54b511e&t=1708514027" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">新洲涨渡湖抗日根据地旧址</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkdl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkdl.jpg?sign=0f31c83d8bae6291faeecc3a2afa646a&t=1708514047" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口第六战区受降堂旧址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkmg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkmg.jpg?sign=1dcefed57b72fa55a622538114932825&t=1708514068" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">《汉口民国日报》社旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whgm.jpg?sign=2de375f20fdc42b9eacf9547c23243a1&t=1708514094" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉国民政府旧址</text>
+          <text class="cardInfo">江汉区
+            周二至周日/09:00-17:00开放
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSjgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/sjgm.jpg?sign=b0899ca6a98071924723a3be29c541ed&t=1708523309" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">首届国民参政会会址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSlzh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/slzh.jpg?sign=f76e27be68e0ec7b0761afb6a188b411&t=1708514130" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">苏联驻汉口领事馆旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoFgls" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/fgls.jpg?sign=55c1bedc74703a4e37dadef0f55552da&t=1708514148" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">法国领事馆旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLzjj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/lzjj.jpg?sign=c91a0be89dc5c687329b042952324677&t=1708514165" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">鲁兹旧居</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhws" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whws.jpg?sign=4f62b02a2b0416299ba39c45e709baa7&t=1708514185" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉卫戍司令部旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhws2" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whws2.jpg?sign=af57436c13a94fb4d72ceb2f02773a4d&t=1708514198" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉卫戍司令部军法处旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZyxc" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zyxc.jpg?sign=a651978c220ad892b888150122e8757a&t=1708514218" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中央宣传部旧址暨瞿秋白旧居</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzycj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zgzycj.jpg?sign=4a2ff21e3cc5f93caf731943ca2500db&t=1708514235" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央长江局机关暨湖北省委机关旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJhtl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/jhtl.jpg?sign=01f02589ce157b7f07d09124a2ab75f8&t=1708514250" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">京汉铁路总工会旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCgrb" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/cgrb.jpg?sign=748af4bf2f266a7820cbbaaa30f7cc0f&t=1708514286" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">《楚光日报》社旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZyjq" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zyjq.jpg?sign=8f6e4ae5ff2a938a4fe92c7591ee260b&t=1708514312" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中原军区武汉办事处旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkxy" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkxy.jpg?sign=b6ae4205ff0bde6fb5bdc54ddc21d55a&t=1708514329" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">《汉口协议》签订地旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLsqt" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/lsqt.jpg?sign=8a9a7d645eefa1790e3f614451525a71&t=1708514346" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">刘少奇同志旧居</text>
+          <text class="cardInfo">江岸区
+            09:00-17:00开放
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkzg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hkzg.jpg?sign=f501ebfe9898c5296a2d9c7d7efeeaeb&t=1708514363" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口中共中央领导人住地旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSqlh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/sqlh.jpg?sign=0e8c3d15688896523d05615874cdcfa3&t=1708514381" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">宋庆龄汉口旧居</text>
+          <text class="cardInfo">江岸区
+            周二至周日开放
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGmrj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/gmrj.jpg?sign=8a23913fca7f019aec118be0f25465e5&t=1708514398" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">郭沫若旧居</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoBltj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/bltj.jpg?sign=21bba6cabc86c1e9d985d13ffae12bcc&t=1708514441" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">鲍罗廷旧居暨《国民论坛》报社旧址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCjsd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/cjsd.jpg?sign=1c1260fdcffb6f7c1c286f8628c366d2&t=1708514461" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">长江书店旧址</text>
+          <text class="cardInfo">江汉区
+            免费
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGmlj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/gmlj.jpg?sign=4811614b826e36728e69a8c48f4e9f38&t=1708514480" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">革命里旧址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZhqg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zhqg.jpg?sign=99077763ae75f215cb15b0c197959b04&t=1708514499" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中华全国文艺界抗敌协会会场旧址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXhsj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xhsj.jpg?sign=2766e590a513dfc5157746546bafb268&t=1708514515" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">“血花世界”旧址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoDbwj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/dbwj.jpg?sign=6171534894667cda301994114b251acf&t=1708514531" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">董必武旧居</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoMzdt" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/mzdt.jpg?sign=c1ac98fb847fe9846a39cec6e187ea84&t=1708514559" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">毛泽东同志主办的中央农民运动讲习所旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzyjw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zgzyjw.jpg?sign=c841623f30608b5c6f7bae54b8067d5e&t=1708514586" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央军委武昌办事处旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHbsd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/hbsd.jpg?sign=ac60301086d8fe0217a61ac2d9c88475&t=1708514604" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">湖北省第一次农民代表大会会址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWhdx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/whdx.jpg?sign=39ce8c6b7f07bac7162857a0a1f748ab&t=1708514620" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">文华大学女生宿舍旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZelt" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zelt.jpg?sign=22de525d621e8b091679e044b4756ce9&t=1708514659" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">周恩来同志珞珈山旧居</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGmrl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/gmrl.jpg?sign=39970ea67ecf72ee89acaccb6be24ac4&t=1708524597" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">郭沫若珞珈山旧居</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCchj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/cchj.jpg?sign=95f4e23a837671c8d7066cd3cc3955fb&t=1708514717" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">陈昌浩旧居</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgbf" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/zgbf.jpg?sign=b0f3abca37c1b0b0ad397fe1a48bdebd&t=1708514806" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共保福祠支部委员会旧址</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+    </swiper-item>
+
+    <swiper-item>
+
+      <view class="card" id="infoWcyt" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/wcyt.jpg?sign=02a49d4b980238b8bfd9abc247fe3515&t=1708590035" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武昌叶挺独立团官兵公墓</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoMzdj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/mzdj.jpg?sign=567fa95dab27281090adc4b0c42fd6af&t=1708514638" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">毛泽东同志旧居</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXjyh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/xjyh.jpg?sign=16b411b5d121c5e87f5132eb88fe09d3&t=1708514417" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">向警予汉口旧居</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWclh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/wclh.jpg?sign=d5d8530110d77a4176756399592f4cc3&t=1708590062" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武昌李汉俊烈士墓</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJhgd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jhgd.jpg?sign=6fc18166a1ef8fabbb3f66f97d78c459&t=1708590086" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">江汉关大楼</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSzsx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/szsx.jpg?sign=c5e5dcae8a3ff58698e50fc11816901a&t=1708590100" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">孙中山先生铜像</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGdls" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/gdls.jpg?sign=31472ab63baa3874c1e3430f83d34194&t=1708514701" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">耿丹烈士墓</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGmgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/gmgm.jpg?sign=d53f29b243b311474e7c90ca972d5d8d&t=1708590259" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">国民革命军第四军独立团北伐阵亡官兵诸烈士陵园</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSyls" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/syls.jpg?sign=acbdd72b50a8cf1e86e722a4c70ce20c&t=1708590298" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">施洋烈士陵园</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYmcs" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/ymcs.jpg?sign=a7564953fae8ce9002c878ddb4d962f3&t=1708590317" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">阅马场孙中山铜像</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCdyj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/cdyj.jpg?sign=ed3f578a95c4e03faaba3c3e47fc46fc&t=1708590356" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">陈定一纪念碑</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCdyl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/cdyl.jpg?sign=829014196d08e8157e1b7d6907f7c440&t=1708590372" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">陈定一烈士墓</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJfsg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jfsg.jpg?sign=11c6b61762f7061519d1f10316744745&t=1708590389" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">九峰山革命烈士陵园</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSmfl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/smfl.jpg?sign=b81a4f0f48745164ed2f772d4b736ee1&t=1708590410" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">石门峰烈士陵园</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZlwl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/zlwl.jpg?sign=383e3f9ec490cc826168be889a8254d1&t=1708590554" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">朱立文烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZbzl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/zbzl.jpg?sign=74a6185cf8aaea486241aff0b56c59df&t=1708590569" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">张宝珍烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWgcl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/wgcl.jpg?sign=8520962d8cc83cdd8b2bb252abe08584&t=1708597558" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">吴干臣烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoPxnl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/pxnl.jpg?sign=8b2379e0fba76402d1553e1f1f14b0b9&t=1708590732" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">彭贤能烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYczl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/yczl.jpg?sign=9ae57fa077ecc906bbc00885dc24f5c9&t=1708590767" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">殷崇洲烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXytl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xytl.jpg?sign=6e94af1f7a164a7bfd1eda28b37d995f&t=1708590795" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">肖雅堂烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXyfl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xyfl.jpg?sign=38c851a459faafb2457b4a0de398c9b7&t=1708590856" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">肖毓福烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLkrl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/lkrl.jpg?sign=afc5480b1731e0a8c9e972de6ab387b6&t=1708590920" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">刘可仁烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXzfl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xzfl.jpg?sign=44021981197ad160bc490dbf26b0d23d&t=1708590935" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">徐质夫烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLcfl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/lcfl.jpg?sign=d30996b48c890e7a0809cd4d92088b37&t=1708590961" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">刘慈夫烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoPxrl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/pxrl.jpg?sign=d56580c3f42c9f05c12c0bda7af5d18c&t=1708590976" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">彭信儒烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJtsl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jtsl.jpg?sign=8b798e601a553ec43aaa640771222a4f&t=1708590990" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">蒋天树烈士墓</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGzhl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/gzhl.jpg?sign=a2917f6b88a21dfa2ae88d57b0831521&t=1708591005" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">葛震寰烈士墓</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYyzl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/yyzl.jpg?sign=5adc98e1be3c90fdacf7bab78abf225b&t=1708591020" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">叶禹钟烈士墓</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHsqb" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/hsqb.jpg?sign=add93d9a3339b59de124baa4575091cc&t=1708591035" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">贺胜桥北伐阵亡将士陵园</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXytx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xytx.jpg?sign=a6c1fdde66dd0137dc8d697d642d03ac&t=1708591051" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">项英铜像</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJxgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jxgm.jpg?sign=bfbb255244e96a3174d304a06873e1a9&t=1708591063" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">江夏革命烈士纪念馆</text>
+          <text class="cardInfo">江夏区
+            周一至周五/09:00-16:00
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoTyzs" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/tyzs.jpg?sign=933203ef79e2f9c71afbdd748d0847d4&t=1708591079" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">唐义贞塑像</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLqss" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/lqss.jpg?sign=429d343174b18dfef963e3c5b970ab98&t=1708591094" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">李求实塑像及陈列室</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoTzsa" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/tzsa.jpg?sign=575301a0c377564689b9a93b0787409f&t=1708591114" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">天子山爱国主义教育基地</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoTjsl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/tjsl.jpg?sign=8632b74d60c062cefc2777ccceccc88c&t=1708591127" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">唐际盛烈士墓</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoPzrl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/pzrl.jpg?sign=6cc941707f1cde74d920878a8cc264e7&t=1708591142" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">潘忠汝烈士墓</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoDcjl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/dcjl.jpg?sign=80591f0300aff950e7746933afd4ca42&t=1708591159" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">杜崇杰烈士墓</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoWghw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/wghl.jpg?sign=46343723f99a648da410053f806803b4&t=1708591184" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">吴光浩、吴光荣烈士陵园</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYxcl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/yxcl.jpg?sign=8cdfe755bdd266bb41814ea445ed74b6&t=1708591214" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">杨学诚烈士陵园</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJsbd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jsbd.jpg?sign=77e0cb35fc35179616b7a3b60573371c&t=1708591233" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">静山暴动纪念碑</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoJssg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/jssg.jpg?sign=5ed0690577e54aed51e82df9ff1155f6&t=1708591247" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">甲山寺革命烈士纪念碑</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLtyl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/ltyl.jpg?sign=9db20e001f4274c6ed04af547fdbabf1&t=1708591262" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">刘天元烈士墓</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoFhgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/fhgm.jpg?sign=635dd77aef3202f1a6d30a300f2dd9db&t=1708591304" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">凤凰革命烈士纪念园</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZdhk" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/zdhk.jpg?sign=506fed63ac4a1ee054622ed2b9dea58b&t=1708591324" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">涨渡湖抗日根据地纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLjgm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/ljgm.jpg?sign=56768743cab532b4743a6e705ad83a88&t=1708591638" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">李集革命烈士纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLzsq" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/lzsq.jpg?sign=f5b9e00b98694e9518981d0768954c2f&t=1708591654" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">李紫苏区革命烈士纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXggm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xggm.jpg?sign=763f7dc4886e34eeb01a0d83fdcd349e&t=1708591668" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">徐古革命烈士纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHmlm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/hmlm.jpg?sign=da347ac9a6e60c836cd90bb0adefefa3&t=1708591836" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">郝梦龄墓</text>
+          <text class="cardInfo">洪山区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLjqg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/ljqg.jpg?sign=d804ddc2a2a76ae352931ba2d57c6736&t=1708597179" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">刘家麒故居</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLjdw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/ljdw.jpg?sign=2e8aa367874b1aa80612f84bbfaec020&t=1708591868" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">林家大湾反抗日寇暴行纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZsjj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/zsjj.jpg?sign=f9758ef6c91195b2cf816ba6bf2d1fce&t=1708591887" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中山舰纪念馆</text>
+          <text class="cardInfo">江夏区
+            周二至周日/09:00-17:00开放
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSqkr" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/sqkr.jpg?sign=b313a04f4e071471b0ad86a2578c0ac3&t=1708592026" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">石丘抗日惨案公墓</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXzcw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Edu/xzcw.jpg?sign=97b9eda4d5738ef461c94f2e5475d4b2&t=1708592044" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">新洲城五八惨案纪念碑</text>
+          <text class="cardInfo">新洲区
+          </text>
+        </view>
+      </view>
+
+    </swiper-item>
+
+    <swiper-item>
+
+      <view class="card" id="infoLyca" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/whdx.jpg?sign=573196a8cfe0532b66eb71f7c3878bce&t=1708663818" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">武汉大学六一惨案旧址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCdzr" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/cdzr.jpg?sign=79e6881fcc37f64fbfac0cceaa989a5b&t=1708663830" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">蔡甸侏儒山战役遗址</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzyzz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgzyzz.jpg?sign=746adfe3fc3c4b4028e5fbc48f58712e&t=1708663848" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央组织部遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzyzl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgzyzl.jpg?sign=75ca329743801a29c4c3109c3cd8f45c&t=1708663864" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央暂留武汉交通处遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzygj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgzygj.jpg?sign=c08f5e0ef904d1009ce483139f12ef83&t=1708663886" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央长江局国际宣传组遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZghk" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zghk.jpg?sign=bd1b1380cf02e55c067be4216e65516f&t=1708663922" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共汉口地委遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHbsw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/hbsw.jpg?sign=760559eaecb6da00c17a6222c16e234d&t=1708663972" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共湖北省委机关遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHkrl" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/hkrl.jpg?sign=5cb11e35c5a1632d7ab955c421e2320e&t=1708663986" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉口人力车夫工会遗址</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgzyzl2" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgzyzl2.jpg?sign=65e8b4d1da9f13b86d53f505dc88599b&t=1708664002" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共中央暂留武汉交通处遗址</text>
+          <text class="cardInfo">江汉区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZghy" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zghy.jpg?sign=57c3a5db7db66ab9f29aea6731461d63&t=1708664633" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共汉阳县委机关遗址</text>
+          <text class="cardInfo">汉阳区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHypz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/hypz.jpg?sign=b3bbafd81529fdcc75b5aea57eb6b6ac&t=1708664653" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉冶萍总工会成立大会遗址</text>
+          <text class="cardInfo">汉阳区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZhqgnm" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zhqgnm.jpg?sign=eff2ce23653b3ba70ca1e9131ea43d75&t=1708664817" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中华全国农民协会遗址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoGmgm24" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/gmgm24.jpg?sign=2b3c2c480f6486a4ee6611bebcc34821&t=1708664928" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">国民革命军第24师师部遗址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHbqw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/hbqw.jpg?sign=d0e6c9bb2c4e6cb7d8ff509d755d6a7b&t=1708664942" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共湖北区委机关遗址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgwh" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgwh.jpg?sign=9044061b44887878f9bafdf8d23f2762&t=1708665029" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共武汉区委机关遗址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLqssyz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/lqss.jpg?sign=f6145dc2e4d598f43e82ad06850be9fc&t=1708665042" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">利群书社遗址</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSzsj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/szsj.jpg?sign=1d62b973d5e41d4edc0ad083e6fbfab9&t=1708665133" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">孙中山纪念碑位</text>
+          <text class="cardInfo">武昌区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoHyzx" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/hyzx.jpg?sign=0153cd09669e095a70b3dd0ae2b4b88f&t=1708666432" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">汉阳中心区苏维埃政府成立地遗址</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoCyyj" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/cyyj.jpg?sign=245e39023cd7a46f6956afbb4ff6c93e&t=1708666454" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">川阳游击大队建军典礼地遗址</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoQxdw" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/qxdw.jpg?sign=c0cef6a0b0f816535b75a578d385a398&t=1708666469" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">七萧大湾暴动动员会遗址</text>
+          <text class="cardInfo">蔡甸区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZgwc" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zgwc.jpg?sign=6928b9e6e9b568a6fd6716003361f505&t=1708666484" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共武昌县委员会遗址</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoPxxd" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/pxxd.jpg?sign=672b691cd25ebeb6dccf355d7e0b9edf&t=1708666511" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">平息夏斗寅叛乱战场遗址</text>
+          <text class="cardInfo">江夏区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoZghp" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/zghp.jpg?sign=f7093d78cd1075ac05ca98f8f1a3b9ff&t=1708666526" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">中共黄陂三合店支部遗址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoLjgz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/ljgz.jpg?sign=9a617d72b8fda918c0f4fba0d917271b&t=1708666681" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">罗家岗战斗遗址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoXlwz" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/xlwz.jpg?sign=2f2211abbfced21aec4878b3b4220247&t=1708666695" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">新李湾战斗遗址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoSftr" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/sftr.jpg?sign=399b9046035db75592f123a9801c5804&t=1708666731" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">双凤亭日寇刑场遗址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoTjhc" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/tjhc.jpg?sign=f7a824fda1009b304d52ac319ec1dda9&t=1708666746" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">坦教湖惨案遗址</text>
+          <text class="cardInfo">黄陂区
+          </text>
+        </view>
+      </view>
+
+      <view class="card" id="infoYjlg" bindtap="gotoInfo">
+        <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/War/yjlg.jpg?sign=aa3f5be35d726e14f56bba0e905022fa&t=1708666760" mode="aspectFill" class="cardPic" />
+        <view class="textBox">
+          <text class="cardTitle">余记里革命烈士就义处</text>
+          <text class="cardInfo">江岸区
+          </text>
+        </view>
+      </view>
+
+    </swiper-item>
+  </swiper>
+</view>
+

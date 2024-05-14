@@ -1,0 +1,40 @@
+/* floating-ball.wxss */
+/* 悬浮球样式 */
+
+.floating-ball {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: rgb(200,58,58);
+  overflow: hidden;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
+}
+
+.ball-image {
+  width: 65%;
+  height: 65%;
+}
+
+.image-container {
+  position: fixed;
+  bottom: 110rpx;
+  right: 90rpx;
+  width: 25vw; /* 控制图片容器的宽度 */
+  height: 50vh;
+  max-width: 100px;
+  max-height: 25vh;
+  z-index: 9999; /* 设置 z-index 使图片容器位于其他元素上方 */
+}
+
+.image {
+  width: 100%; /* 图片宽度占满容器 */
+  height: 100%; /* 图片高度占满容器 */
+  background-color: rgba(0, 0, 0, 0); /* 设置透明背景 */
+  border-radius: 10rpx;
+}
+
+
+

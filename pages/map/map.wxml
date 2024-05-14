@@ -1,0 +1,24 @@
+<!--pages/map/map.wxml-->
+
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search-bar" style="width: 750rpx; height: 97rpx; display: block; box-sizing: border-box">
+    <input type="text" placeholder="请输入关键词搜索" /><button bindtap="search" style="position: relative; left: 282rpx; top: -66rpx; width: 214rpx; height: 85rpx; display: block; box-sizing: border-box; background-color: rgb(223, 223, 223)" size="default" >搜索</button>
+  </view>
+
+  <!-- 导航栏 -->
+  <!-- index.wxml -->
+<swiper class="navigation-bar" indicator-dots="{{ false }}" duration="{{ 300 }}" item-width="{{ itemWidth }}" display-multiple-items="4" circular="{{ true }}" autoplay="{{ false }}">
+  <swiper-item wx:for="{{ districts }}" wx:key="index">
+    <view class="nav-item">{{ districtLocations.district }}
+      <button bindtap="navigateToDistrict" data-district="{{ item }}" type="default" size="mini" style="color: #c83a3a " plain="{{ false }}">{{ item }}</button>
+    </view>
+  </swiper-item>
+</swiper>
+
+  <!-- 显示窗 -->
+  <view class="map-container">
+    <!-- 这里放置地图显示窗的内容 -->
+    <map class="map" longitude="{{ longitude }}" latitude="{{ latitude }}" markers="{{ markers }}" polylines="{{ polylines }}" bindmarkertap="markerTap" bindregionchange="regionChange" />
+  </view>
+</view>

@@ -1,0 +1,149 @@
+/**index.wxss**/
+@font-face{
+  font-family: mySong;
+  src: url("https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/font/%E5%AD%97%E9%AD%82%E5%A4%AA%E9%98%BF%E6%A5%B7%E4%B9%A6(%E5%95%86%E7%94%A8%E9%9C%80%E6%8E%88%E6%9D%83).ttf?sign=d182e89f8f88526dbe8cd45981bef26f&t=1715690438");
+}
+
+.swiper-container{
+  height: 680rpx;
+}
+
+.swiper-img{
+  height: 112%;
+}
+
+.mainContainer{
+  position: relative;
+  bottom: 50rpx;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 5px 0 rgba(0,0,0,0.2);
+}
+
+.map{
+  margin:80rpx 40rpx 0 40rpx;
+  background-color: rgb(200, 58, 58);
+  height:180rpx;
+  border-radius: 20px;
+  box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sectionText{
+  font-family: mySong;
+  color: #f8e5e5;
+  font-size: 60rpx;
+}
+
+.moreSection{
+  margin:0 15rpx 40rpx 15rpx;
+  height:180rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.shop, .forum{
+  height: 100%;
+  width: 40%;
+  margin: 0 40rpx 0 40rpx;
+  background-color: rgb(200, 58, 58);
+  border-radius: 20px;
+  box-shadow: 5px 0 5px 0 rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .mapImage{
+  height:70%;
+} */
+
+.navigate{
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 250rpx;
+  position: sticky;
+  top: 0rpx;
+  background-color: white;
+  z-index: 1;
+}
+
+.navigate-item{
+  width: 180rpx;
+  margin: 170rpx 20rpx 20rpx 20rpx;
+  display: inline-block;
+  text-align: center;
+  height: 90rpx;
+}
+
+.names{
+  font-family: fantasy;
+  font-size: 38rpx;
+  color: #7a7a7a;
+}
+
+.names.active{
+  color: rgb(145, 36, 34);
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.line{
+  margin: 0 auto 0 auto;
+  width: 100rpx;
+  height: 8rpx;
+  border-radius: 8rpx;
+}
+
+.line.active{
+  background:rgb(145, 36, 34);
+  transition: all .3s;
+}
+
+.card{
+  background-color: #f6f6f6;
+  height: 230rpx;
+  margin: 40rpx;
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px 0 rgba(0,0,0,0.4);
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.cardPic{
+  height: 100%;
+  width: 38%;
+}
+
+.textBox{
+  height: 100%;
+  width: 61%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 5rpx 0 20rpx;
+}
+
+.cardTitle{
+  height: 60rpx;
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 34rpx;
+  line-height: 46rpx;
+  margin: 20rpx 0 40rpx 0;
+}
+
+.cardInfo{
+  font-weight: lighter;
+  font-family: monospace;
+  line-height: 35rpx;
+  color: #7a7a7a;
+}
+

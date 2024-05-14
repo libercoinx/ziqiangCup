@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/map/map",
+    "pages/information/information",
+    "pages/shop/shop",
+    "pages/forum/forum"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "云上红武",
+    "navigationBarBackgroundColor": "#F6F6F6"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

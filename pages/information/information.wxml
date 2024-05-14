@@ -1,0 +1,28 @@
+<!--pages/information/information.wxml-->
+<view class="picBox">
+  <image src="{{infoData.pic}}" mode="widthFix" style="width: 100%;"/>
+  <text class="title">{{infoData.title}}</text>
+</view>
+
+<view class="infoText">
+  <view class="textContainer">
+    <text class="secTitle">遗址信息</text>
+    <text user-select>地标类型：{{infoData.type}}
+地标地址：{{infoData.address}}</text>
+    <text wx:if="{{!infoData.time==''}}" user-select>开放时间：{{infoData.time}}</text>
+    <text wx:if="{{!infoData.contact==''}}" user-select>咨询渠道：{{infoData.contact}}</text>
+    <text wx:if="{{!infoData.price==''}}" user-select>参观票价：{{infoData.price}}</text>
+
+    <text class="secTitle">
+    遗址介绍</text>
+    <text style="text-indent: 2em;">{{infoData.para}}</text>
+    <text style="text-indent: 2em;">{{infoData.para2}}</text>
+    <text style="text-indent: 2em;">{{infoData.para3}}</text>
+    <text style="text-indent: 2em;">{{infoData.para4}}</text>
+    <text style="text-indent: 2em;">{{infoData.para5}}</text>
+    <text style="text-indent: 2em;">{{infoData.para6}}</text>
+    <text style="text-indent: 2em;">{{infoData.para7}}</text>
+    <text style="font-weight: bold;">{{infoData.note}}</text>
+    <rich-text nodes="<p style='color: rgb(180, 180, 180);'><br>信息来源：武汉市-湖北省图书馆 (library.hb.cn)</p>"/>
+  </view>
+</view>
