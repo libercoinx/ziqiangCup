@@ -16,6 +16,7 @@ Component({
     bottom: 50, // 初始位置的底部距离
     right: 50, // 初始位置的右侧距离
     showImage:false,//控制图片显示
+    showSection: false,//控制小悬浮球显示
   },
 
   /*组件的方法列表*/
@@ -30,7 +31,8 @@ Component({
     });
 
     this.setData({
-      showImage: !this.data.showImage // 点击时切换图片显示状态
+      showSection: !this.data.showSection,// 点击时切换图片显示状态
+      showImage: false
     });
 
     //弹出图片
@@ -40,6 +42,13 @@ Component({
     // });
 
     },    
+
+    tapChara(){
+      this.setData({
+        showImage: !this.data.showImage,
+        showSection: false
+      });
+    }
 
   }
 });

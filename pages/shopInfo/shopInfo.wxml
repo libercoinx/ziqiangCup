@@ -1,0 +1,45 @@
+<!--pages/shopInfo/shopInfo.wxml-->
+<swiper class="swiper-container" autoplay circular indicator-dots indicator-active-color="rgb(200, 58, 58)" style="height: 470rpx;">
+  <!-- 主页轮播图 -->
+  <swiper-item class="item" wx:for="{{ images }}" wx:key="index">
+    <image src="{{ item }}" class="swiper-img" mode="aspectFill" style="width: 100%;">
+    </image>>
+  </swiper-item>
+</swiper>
+
+<view class="fixedBar">
+  <view class="section1">
+    <image src="/images/like.svg" style="width: 35%;"/>
+    <text style="color: rgba(0, 0, 0, 0.6); font-size: 26rpx;">收藏</text>
+  </view>
+  <view class="section1">
+    <image src="/images/kefu.svg" style="width: 35%;"/>
+    <text style="color: rgba(0, 0, 0, 0.6); font-size: 26rpx;">客服</text>
+  </view>
+  <view class="section2">立即报名</view>
+</view>
+
+<view class="mainContainer">
+  <view class="main_info" style="margin: 25rpx 0 50rpx 5%; width: 90%;">
+    <view style="font-size: 50rpx; font-weight: bold;">百年党代艰辛路，回眸盛会忆光辉</view>
+    <view class="price" style="color: rgb(200, 58, 58); font-size: 52rpx; margin-top: 10rpx; right: 20rpx; float: right;">￥3000.00起</view>
+    <view style="font-size: 29rpx; color: #7a7a7a; margin-top: 32rpx;">2023年8月7日 8:50-15:40</view>
+  </view>
+  <view style="width: 100%; background-color: #7a7a7a85; height: 40rpx;" />
+
+  <view class="detail" style="margin: 70rpx 20rpx 0 20rpx;">
+    <view class="second_title">活动详情</view>
+    <text class="para" style="margin-left: 28px;">针对 “重忆艰辛革命岁月”红色景点参观党建活动，我们的“云上红武”小程序通过景点背景数据分析，推出了本次名为“百年党代艰辛路，回眸盛会忆光辉”的精品红色旅游线路。具体线路为 “中共五大会址——毛泽东同志旧居——八七会议纪念馆”，以感受从“四一二”反革命政变前后至“八七会议”之间中国共产党艰辛的革命历程和奋斗历史。</text>
+    <view class="second_title">活动流程</view>
+    <text class="para">1.集合地点：根据小程序的地图功能与大数据计算分析，我们将在8：50于武昌廉政文化公园集合前，并带您步行前往五大会址，以确保不会因堵车和路途遥远导致迟到。到达景点后，您可以打开我们提前帮您预约的购票二维码进入场馆。
+
+      2 .中共五大会址：到达中共五大会址，您将会收到我们赠予的蓝牙耳机与云上红武制作的游览手册。您可以打开“云上红武”小程序，通过地图模式来了解所在地点，并且到达特定区域时，小程序还会传来相对应的历史背景、故事讲解，使您可以深入了解中共五大在“四一二”反革命政变后的紧迫情况。通过“云上红武”小程序上的多语言切换功能，您还可以轻松地与参与中共五大的国际代表罗易进行跨越历史的对话。
+
+      3.毛泽东同志旧居：抵达毛主席同志旧居后，小程序上特有的足迹模式将会点亮这一地点，您可以在小程序上进行打卡和纪念。进入毛泽东同志的故居，您还可以使用“云上红武”中的“虚拟全景场馆”功能，让历史画面浮现在眼前，身临其境地感受伟人毛泽东的生活、工作……
+
+      4.午饭时间：参观完毛泽东同志故居后，您将搭上提前到达的旅游大巴，并到达预定饭店，方时可直接用餐。
+
+      5. 八七会议纪念馆：纪念馆内设置有我们专属IP“红云”与八七会议联名的文创产品店，您可购买留念。并且八七会议纪念馆专门为本次参与我们活动的客户，盛情举办《八七会议》表演剧，此次戏剧表演在会议房间旧址进行，让您身临其境感受革命精神的熏陶！
+    </text>
+  </view>
+</view>

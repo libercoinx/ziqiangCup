@@ -18,6 +18,19 @@
   height: 65%;
 }
 
+.section{
+  position: fixed;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background-color: rgba(214, 214, 214, 0.5);
+  overflow: hidden;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .image-container {
   position: fixed;
   bottom: 110rpx;

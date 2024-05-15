@@ -8,6 +8,15 @@
 <view class="floating-ball" bindtap="handleTap" style="bottom: {{ bottom }}rpx; right: {{ right }}rpx; display: flex; justify-content: center; align-items: center;">
   <image class="ball-image" src="images/3-More.svg" mode="heightFix"></image>
 </view>
-<view class="image-container" wx:if="{{ showImage }}" bindtap="handleTap" >
+<view class="image-container" wx:if="{{ showImage }}" bindtap="tapChara">
   <image class="image" src="https://imgur.la/images/2024/03/13/IP11.png" mode="heightFix"></image>
+</view>
+<view class="section" wx:if="{{ showSection }}" style="bottom: 160rpx; right: 40rpx;">
+  <image class="ball-image" src="images/language.svg" mode="heightFix"/>
+</view>
+<view class="section" wx:if="{{ showSection }}" style="bottom: 136rpx; right: 130rpx;" bindtap="tapChara">
+  <image class="ball-image" src="images/character.svg" mode="heightFix"/>
+</view>
+<view class="section" wx:if="{{ showSection }}" style="bottom: 50rpx; right: 160rpx;">
+  <image class="ball-image" src="images/set.svg" mode="heightFix"/>
 </view>

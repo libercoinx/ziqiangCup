@@ -1,0 +1,63 @@
+/* pages/shopInfo/shopInfo.wxss */
+@font-face{
+  font-family: mySong;
+  src: url("https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/font/%E5%AD%97%E9%AD%82%E5%A4%AA%E9%98%BF%E6%A5%B7%E4%B9%A6(%E5%95%86%E7%94%A8%E9%9C%80%E6%8E%88%E6%9D%83).ttf?sign=d182e89f8f88526dbe8cd45981bef26f&t=1715690438");
+}
+
+.mainContainer{
+  position: relative;
+  bottom: 50rpx;
+  width: 100%;
+  background-color: white;
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 -8px 5px 0 rgba(0,0,0,0.2);
+}
+
+.second_title{
+  margin: 70rpx 0 35rpx 15rpx;
+  font-size: 45rpx;
+  font-family: mySong;
+  border-left: 3px solid rgb(200, 58, 58);
+  padding: 0 0 5px 6px;
+}
+
+.para{
+  width: 90%;
+  font-size: 14px;
+}
+
+.fixedBar{
+  position: fixed;
+  height: 140rpx;
+  width: 100%;
+  background-color: #f6f6f6;
+  z-index: 99;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+}
+
+.section1{
+  margin-top: 20rpx;
+  margin-left: 2%;
+  height: 75%;
+  width: 18%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section2{
+  height: 75%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(200, 58, 58);
+  margin: 20rpx 5% 0 5%;
+  border-radius: 10px;
+  font-family: mySong;
+  font-size: 50rpx;
+  color: #f8e5e5;
+}

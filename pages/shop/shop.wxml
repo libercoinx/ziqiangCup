@@ -4,7 +4,7 @@
   <view style="width: 50%; display: flex; justify-content: center; font-size: 30rpx;">价 格 ▼</view>
 </view>
 
-<view class="picBox">
+<view class="picBox" bindtap="gotoSInfo">
   <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/%E5%85%AB%E4%B8%83%E4%BC%9A%E8%AE%AE.jpg?sign=1e488f9df0dd6a3ed6302449b90ba343&t=1715694266" mode="aspectFill" style="height: 70%; width: 100%;"/>
   <view class="title">
     <view class="main_info" style="margin-left: 20rpx; margin-right: 25rpx; width: 65%;">
@@ -16,7 +16,7 @@
   </view>
 </view>
 
-<view class="picBox">
+<view class="picBox" bindtap="gotoSInfo">
   <image src="https://636c-cloud1-0gbzo63w32e7b734-1324309291.tcb.qcloud.la/Revol/bltj.jpg?sign=a74a68047fd495373b169c9afc6b88bb&t=1715695753" mode="aspectFill" style="height: 70%; width: 100%;"/>
   <view class="title">
     <view class="main_info" style="margin-left: 20rpx; margin-right: 25rpx; width: 65%;">
