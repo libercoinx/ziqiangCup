@@ -24,11 +24,11 @@ Component({
     handleTap() {
 
     // 点击悬浮球触发的事件
-    wx.showToast({
-      title: '点击了悬浮球',
-      icon: 'none'
+    // wx.showToast({
+    //   title: '点击了悬浮球',
+    //   icon: 'none'
       
-    });
+    // });
 
     this.setData({
       showSection: !this.data.showSection,// 点击时切换图片显示状态

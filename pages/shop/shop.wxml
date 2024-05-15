@@ -24,6 +24,6 @@
       <view style="font-size: 28rpx; color: #7a7a7a; margin-top: 15rpx;">2023年8月7日 8:50-15:40</view>
       <view style="font-size: 28rpx; color: #c0be62;">可报二期</view>
     </view>
-    <text class="price" style="color: rgb(200, 58, 58); font-size: 32rpx; margin-top: 10rpx;">￥3000,00起</text>
+    <text class="price" style="color: rgb(200, 58, 58); font-size: 32rpx; margin-top: 10rpx;">￥3000.00起</text>
   </view>
 </view>

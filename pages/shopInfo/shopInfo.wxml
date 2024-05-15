@@ -27,7 +27,7 @@
   </view>
   <view style="width: 100%; background-color: #7a7a7a85; height: 40rpx;" />
 
-  <view class="detail" style="margin: 70rpx 20rpx 0 20rpx;">
+  <view class="detail" style="margin: 70rpx 20rpx 120rpx 20rpx;">
     <view class="second_title">活动详情</view>
     <text class="para" style="margin-left: 28px;">针对 “重忆艰辛革命岁月”红色景点参观党建活动，我们的“云上红武”小程序通过景点背景数据分析，推出了本次名为“百年党代艰辛路，回眸盛会忆光辉”的精品红色旅游线路。具体线路为 “中共五大会址——毛泽东同志旧居——八七会议纪念馆”，以感受从“四一二”反革命政变前后至“八七会议”之间中国共产党艰辛的革命历程和奋斗历史。</text>
     <view class="second_title">活动流程</view>
