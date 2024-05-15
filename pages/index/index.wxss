@@ -77,7 +77,7 @@
 
 .navigate-item{
   width: 180rpx;
-  margin: 170rpx 20rpx 20rpx 20rpx;
+  margin: 20rpx 20rpx 20rpx 20rpx;
   display: inline-block;
   text-align: center;
   height: 90rpx;

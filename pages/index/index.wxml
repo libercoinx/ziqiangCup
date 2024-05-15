@@ -30,18 +30,18 @@
   <!-- 分类导航栏 -->
   <view class="navigate" style="width: 750rpx; height: 100rpx; display: flex; box-sizing: border-box; left: NaNrpx; top: 0rpx">
     <view class="navigate-item" data-index="{{0}}" bindtap="tabNav">
-      <view class="names {{currentTab===0?'active':''}}" style="width: 179rpx; height: 61rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: -150rpx">革命旧址</view>
-      <view class="line {{currentTab===0?'active':''}}" wx:if="{{currentTab===0}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+      <view class="names {{currentTab===0?'active':''}}">革命旧址</view>
+      <view class="line {{currentTab===0?'active':''}}" wx:if="{{currentTab===0}}"></view>
     </view>
 
     <view class="navigate-item" data-index="{{1}}" bindtap="tabNav">
-      <view class="names {{currentTab===1?'active':''}}" style="width: 179rpx; height: 61rpx; display: block; box-sizing: border-box; position: relative; left: 1rpx; top: -150rpx">教育基地</view>
-      <view class="line {{currentTab===1?'active':''}}" wx:if="{{currentTab===1}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+      <view class="names {{currentTab===1?'active':''}}">教育基地</view>
+      <view class="line {{currentTab===1?'active':''}}" wx:if="{{currentTab===1}}"></view>
     </view>
 
     <view class="navigate-item" data-index="{{2}}" bindtap="tabNav">
-      <view class="names {{currentTab===2?'active':''}}" style="position: relative; left: 1rpx; top: -150rpx">战争遗址</view>
-      <view class="line {{currentTab===2?'active':''}}" wx:if="{{currentTab===2}}" style="position: relative; left: 0rpx; top: -136rpx"></view>
+      <view class="names {{currentTab===2?'active':''}}">战争遗址</view>
+      <view class="line {{currentTab===2?'active':''}}" wx:if="{{currentTab===2}}"></view>
     </view>
 
     <floating-ball style="position: fixed; bottom: 20rpx; right: 20rpx;"></floating-ball>
